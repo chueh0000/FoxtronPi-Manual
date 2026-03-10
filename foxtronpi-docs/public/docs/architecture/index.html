@@ -8,24 +8,24 @@ https://github.com/alex-shpak/hugo-book
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="2. 系統架構# 2.1 FoxtronPi系統硬體架構# FoxtronPi 是建構於鴻華 Model C 車型上的控制軟體，主要負責建立車輛與外部控制器之間的通訊連線，並將命令進行訊號轉換與轉拋。透過 OBD to RJ45 線材，外部控制器可與車輛進行實體連接，實現對車輛動力、轉向、煞車、檔位以及車身訊號的控制。
-2.3 FoxtronPi系統軟體架構# 外部控制器的控制信號會透過 DoIP (Diagnostics over IP) 傳送至「FoxtronPi 平台」，由該平台負責將接收到的控制信號轉譯為車輛 ECU 與內部系統可識別的特定輸入信號與控制指令順序。平台同時同步回傳相關的狀態資訊。
+<meta name="description" content="2. 系統架構# 2.1 FoxtronPi系統硬體架構# FoxtronPi 是建構於鴻華 Model C 車型上的控制軟體，主要負責建立車輛與外部控制器之間的通訊連線，並將外部控制器所下達的命令進行訊號轉換與轉拋處理。透過 OBD to RJ45 線材，外部控制器可與車輛進行實體連接，當通訊建立後，便可實現對車輛動力、轉向、煞車、檔位以及車身訊號等功能的控制。FoxtronPi 作為中介橋樑，確保指令能即時、正確地傳遞至各控制模組，達成穩定可靠的控制效能。
+2.3 FoxtronPi系統軟體架構# 外部控制器的控制信號會透過 DoIP (Diagnostics over IP) 傳送至「FoxtronPi 平台」，由該平台負責將接收到的控制信號轉譯為車輛 ECU 與內部系統可識別的特定輸入信號與控制指令順序，如下圖所示。透過此機制，車輛即可依照預期執行相應的控制命令，並同步回傳相關的狀態資訊。
 ">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/architecture/">
   <meta property="og:site_name" content="FoxtronPi 使用說明手冊">
   <meta property="og:title" content="2. 系統架構">
-  <meta property="og:description" content="2. 系統架構# 2.1 FoxtronPi系統硬體架構# FoxtronPi 是建構於鴻華 Model C 車型上的控制軟體，主要負責建立車輛與外部控制器之間的通訊連線，並將命令進行訊號轉換與轉拋。透過 OBD to RJ45 線材，外部控制器可與車輛進行實體連接，實現對車輛動力、轉向、煞車、檔位以及車身訊號的控制。
-2.3 FoxtronPi系統軟體架構# 外部控制器的控制信號會透過 DoIP (Diagnostics over IP) 傳送至「FoxtronPi 平台」，由該平台負責將接收到的控制信號轉譯為車輛 ECU 與內部系統可識別的特定輸入信號與控制指令順序。平台同時同步回傳相關的狀態資訊。">
+  <meta property="og:description" content="2. 系統架構# 2.1 FoxtronPi系統硬體架構# FoxtronPi 是建構於鴻華 Model C 車型上的控制軟體，主要負責建立車輛與外部控制器之間的通訊連線，並將外部控制器所下達的命令進行訊號轉換與轉拋處理。透過 OBD to RJ45 線材，外部控制器可與車輛進行實體連接，當通訊建立後，便可實現對車輛動力、轉向、煞車、檔位以及車身訊號等功能的控制。FoxtronPi 作為中介橋樑，確保指令能即時、正確地傳遞至各控制模組，達成穩定可靠的控制效能。
+2.3 FoxtronPi系統軟體架構# 外部控制器的控制信號會透過 DoIP (Diagnostics over IP) 傳送至「FoxtronPi 平台」，由該平台負責將接收到的控制信號轉譯為車輛 ECU 與內部系統可識別的特定輸入信號與控制指令順序，如下圖所示。透過此機制，車輛即可依照預期執行相應的控制命令，並同步回傳相關的狀態資訊。">
   <meta property="og:locale" content="zh_tw">
   <meta property="og:type" content="website">
 
 
   <meta itemprop="name" content="2. 系統架構">
-  <meta itemprop="description" content="2. 系統架構# 2.1 FoxtronPi系統硬體架構# FoxtronPi 是建構於鴻華 Model C 車型上的控制軟體，主要負責建立車輛與外部控制器之間的通訊連線，並將命令進行訊號轉換與轉拋。透過 OBD to RJ45 線材，外部控制器可與車輛進行實體連接，實現對車輛動力、轉向、煞車、檔位以及車身訊號的控制。
-2.3 FoxtronPi系統軟體架構# 外部控制器的控制信號會透過 DoIP (Diagnostics over IP) 傳送至「FoxtronPi 平台」，由該平台負責將接收到的控制信號轉譯為車輛 ECU 與內部系統可識別的特定輸入信號與控制指令順序。平台同時同步回傳相關的狀態資訊。">
-  <meta itemprop="wordCount" content="24">
+  <meta itemprop="description" content="2. 系統架構# 2.1 FoxtronPi系統硬體架構# FoxtronPi 是建構於鴻華 Model C 車型上的控制軟體，主要負責建立車輛與外部控制器之間的通訊連線，並將外部控制器所下達的命令進行訊號轉換與轉拋處理。透過 OBD to RJ45 線材，外部控制器可與車輛進行實體連接，當通訊建立後，便可實現對車輛動力、轉向、煞車、檔位以及車身訊號等功能的控制。FoxtronPi 作為中介橋樑，確保指令能即時、正確地傳遞至各控制模組，達成穩定可靠的控制效能。
+2.3 FoxtronPi系統軟體架構# 外部控制器的控制信號會透過 DoIP (Diagnostics over IP) 傳送至「FoxtronPi 平台」，由該平台負責將接收到的控制信號轉譯為車輛 ECU 與內部系統可識別的特定輸入信號與控制指令順序，如下圖所示。透過此機制，車輛即可依照預期執行相應的控制命令，並同步回傳相關的狀態資訊。">
+  <meta itemprop="wordCount" content="25">
 
 <title>2. 系統架構 | FoxtronPi 使用說明手冊</title>
 <link rel="icon" href="/favicon.png" >
@@ -35,7 +35,7 @@ https://github.com/alex-shpak/hugo-book
 
 
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.9350ed64e2e921217df458ec9cde9860a7e5451b3338bf3e64cbba6800cefe55.js" integrity="sha256-k1DtZOLpISF99FjsnN6YYKflRRszOL8&#43;ZMu6aADO/lU=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.a1d2d17bf2b6985dca795f4e7493c0af8b6660401d29ea26ac654a4a656cb2ef.js" integrity="sha256-odLRe/K2mF3KeV9OdJPAr4tmYEAdKeomrGVKSmVssu8=" crossorigin="anonymous"></script>
 
 
 <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/docs/architecture/index.xml" title="FoxtronPi 使用說明手冊" />
@@ -320,9 +320,11 @@ https://github.com/alex-shpak/hugo-book
       
   <article class="markdown book-article"><h1 id="2-系統架構">2. 系統架構<a class="anchor" href="#2-%e7%b3%bb%e7%b5%b1%e6%9e%b6%e6%a7%8b">#</a></h1>
 <h2 id="21-foxtronpi系統硬體架構">2.1 FoxtronPi系統硬體架構<a class="anchor" href="#21-foxtronpi%e7%b3%bb%e7%b5%b1%e7%a1%ac%e9%ab%94%e6%9e%b6%e6%a7%8b">#</a></h2>
-<p>FoxtronPi 是建構於鴻華 Model C 車型上的控制軟體，主要負責建立車輛與外部控制器之間的通訊連線，並將命令進行訊號轉換與轉拋。透過 OBD to RJ45 線材，外部控制器可與車輛進行實體連接，實現對車輛動力、轉向、煞車、檔位以及車身訊號的控制。</p>
+<p>FoxtronPi 是建構於鴻華 Model C 車型上的控制軟體，主要負責建立車輛與外部控制器之間的通訊連線，並將外部控制器所下達的命令進行訊號轉換與轉拋處理。透過 OBD to RJ45 線材，外部控制器可與車輛進行實體連接，當通訊建立後，便可實現對車輛動力、轉向、煞車、檔位以及車身訊號等功能的控制。FoxtronPi 作為中介橋樑，確保指令能即時、正確地傳遞至各控制模組，達成穩定可靠的控制效能。</p>
+<p><img src="hardware_arch.png" alt="hardware_architecture" /></p>
 <h2 id="23-foxtronpi系統軟體架構">2.3 FoxtronPi系統軟體架構<a class="anchor" href="#23-foxtronpi%e7%b3%bb%e7%b5%b1%e8%bb%9f%e9%ab%94%e6%9e%b6%e6%a7%8b">#</a></h2>
-<p>外部控制器的控制信號會透過 DoIP (Diagnostics over IP) 傳送至「FoxtronPi 平台」，由該平台負責將接收到的控制信號轉譯為車輛 ECU 與內部系統可識別的特定輸入信號與控制指令順序。平台同時同步回傳相關的狀態資訊。</p>
+<p>外部控制器的控制信號會透過 DoIP (Diagnostics over IP) 傳送至「FoxtronPi 平台」，由該平台負責將接收到的控制信號轉譯為車輛 ECU 與內部系統可識別的特定輸入信號與控制指令順序，如下圖所示。透過此機制，車輛即可依照預期執行相應的控制命令，並同步回傳相關的狀態資訊。</p>
+<p><img src="software_arch.png" alt="software_architecture" /></p>
 </article>
  
       
