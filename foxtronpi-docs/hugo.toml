@@ -2,6 +2,7 @@ baseURL = 'http://example.org/'
 languageCode = 'zh-tw'
 title = 'FoxtronPi 使用說明手冊'
 theme = 'hugo-book'
+copyright = 'Copyright © FOXTRON Vehicle Technologies Co., Ltd. All Rights Reserved.'
 
 [params]
   # (Optional) Set Google Analytics id
