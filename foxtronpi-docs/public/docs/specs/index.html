@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="3. 車輛規格# 3.1 FoxtronPi整車規格# 車型: D31L24 (衍生車) 尺寸: 4695 * 1895 * 1625 mm 軸距: 2920 mm 車重: 2130 kg (5人 H/L RWD) 電機: 交流永磁同步馬達 (172 kW, 340 Nm) 電池: LFP (57.73 / 82.74 kWh) 續航: 505 / 700 km 快充: &lt;30 mins (10%-80%) 3.2 硬體平台動態控制規格# 3.2.1 煞車控制規格# 類型: 液壓式制動 性能: 1.07G 最大減速度 (ABS 啟動) 響應時間: &lt; 100 ms 3.2.2 轉向控制規格# 類型: 前軸轉向, 雙小齒輪 EPS 性能: 啟動響應 &lt; 150 ms, 角度誤差 &lt; 0.5 deg 3.2.3 動力控制規格# 性能: 速度 &lt;= 40 km/h, 輪端扭力 3900 Nm 3.2.1 FoxtronPi 通訊規格# 協定: UDS / DoIP 性能: 每筆請求約 40ms 延遲 ">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/specs/">
+  <meta property="og:site_name" content="FoxtronPi 使用說明手冊">
+  <meta property="og:title" content="3. 車輛規格">
+  <meta property="og:description" content="3. 車輛規格# 3.1 FoxtronPi整車規格# 車型: D31L24 (衍生車) 尺寸: 4695 * 1895 * 1625 mm 軸距: 2920 mm 車重: 2130 kg (5人 H/L RWD) 電機: 交流永磁同步馬達 (172 kW, 340 Nm) 電池: LFP (57.73 / 82.74 kWh) 續航: 505 / 700 km 快充: &lt;30 mins (10%-80%) 3.2 硬體平台動態控制規格# 3.2.1 煞車控制規格# 類型: 液壓式制動 性能: 1.07G 最大減速度 (ABS 啟動) 響應時間: &lt; 100 ms 3.2.2 轉向控制規格# 類型: 前軸轉向, 雙小齒輪 EPS 性能: 啟動響應 &lt; 150 ms, 角度誤差 &lt; 0.5 deg 3.2.3 動力控制規格# 性能: 速度 &lt;= 40 km/h, 輪端扭力 3900 Nm 3.2.1 FoxtronPi 通訊規格# 協定: UDS / DoIP 性能: 每筆請求約 40ms 延遲">
+  <meta property="og:locale" content="zh_tw">
+  <meta property="og:type" content="website">
+
+
+  <meta itemprop="name" content="3. 車輛規格">
+  <meta itemprop="description" content="3. 車輛規格# 3.1 FoxtronPi整車規格# 車型: D31L24 (衍生車) 尺寸: 4695 * 1895 * 1625 mm 軸距: 2920 mm 車重: 2130 kg (5人 H/L RWD) 電機: 交流永磁同步馬達 (172 kW, 340 Nm) 電池: LFP (57.73 / 82.74 kWh) 續航: 505 / 700 km 快充: &lt;30 mins (10%-80%) 3.2 硬體平台動態控制規格# 3.2.1 煞車控制規格# 類型: 液壓式制動 性能: 1.07G 最大減速度 (ABS 啟動) 響應時間: &lt; 100 ms 3.2.2 轉向控制規格# 類型: 前軸轉向, 雙小齒輪 EPS 性能: 啟動響應 &lt; 150 ms, 角度誤差 &lt; 0.5 deg 3.2.3 動力控制規格# 性能: 速度 &lt;= 40 km/h, 輪端扭力 3900 Nm 3.2.1 FoxtronPi 通訊規格# 協定: UDS / DoIP 性能: 每筆請求約 40ms 延遲">
+  <meta itemprop="wordCount" content="95">
+
+<title>3. 車輛規格 | FoxtronPi 使用說明手冊</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/specs/">
+<link rel="stylesheet" href="/book.min.cc2c524ed250aac81b23d1f4af87344917b325208841feca0968fe450f570575.css" integrity="sha256-zCxSTtJQqsgbI9H0r4c0SRezJSCIQf7KCWj&#43;RQ9XBXU=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.9350ed64e2e921217df458ec9cde9860a7e5451b3338bf3e64cbba6800cefe55.js" integrity="sha256-k1DtZOLpISF99FjsnN6YYKflRRszOL8&#43;ZMu6aADO/lU=" crossorigin="anonymous"></script>
+
+
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/docs/specs/index.xml" title="FoxtronPi 使用說明手冊" />
+
+  
+</head>
+<body dir="ltr" class="book-kind-section book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>FoxtronPi 使用說明手冊</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="搜索"
+    aria-label="搜索"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/overview/" class="">
+      1. 總則說明</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/architecture/" class="">
+      2. 系統架構</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/specs/" class="active">
+      3. 車輛規格</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/charging/" class="">
+      4. 車輛充電與電源供應</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/signals/read/" class="">
+      5. FoxtronPi 讀取訊號</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/signals/control/" class="">
+      6. 控制訊號操作流程與限制條件</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/dev-setup/" class="">
+      7. 程式開發環境架設</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/" class="">
+      8. FoxtronPi Library (API) 說明</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/emergency/" class="">
+      9. 紅色緊急按鈕操作方法</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>3. 車輛規格</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#31-foxtronpi整車規格">3.1 FoxtronPi整車規格</a></li>
+    <li><a href="#32-硬體平台動態控制規格">3.2 硬體平台動態控制規格</a>
+      <ul>
+        <li><a href="#321-煞車控制規格">3.2.1 煞車控制規格</a></li>
+        <li><a href="#322-轉向控制規格">3.2.2 轉向控制規格</a></li>
+        <li><a href="#323-動力控制規格">3.2.3 動力控制規格</a></li>
+        <li><a href="#321-foxtronpi-通訊規格">3.2.1 FoxtronPi 通訊規格</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="3-車輛規格">3. 車輛規格<a class="anchor" href="#3-%e8%bb%8a%e8%bc%9b%e8%a6%8f%e6%a0%bc">#</a></h1>
+<h2 id="31-foxtronpi整車規格">3.1 FoxtronPi整車規格<a class="anchor" href="#31-foxtronpi%e6%95%b4%e8%bb%8a%e8%a6%8f%e6%a0%bc">#</a></h2>
+<ul>
+<li><strong>車型</strong>: D31L24 (衍生車)</li>
+<li><strong>尺寸</strong>: 4695 * 1895 * 1625 mm</li>
+<li><strong>軸距</strong>: 2920 mm</li>
+<li><strong>車重</strong>: 2130 kg (5人 H/L RWD)</li>
+<li><strong>電機</strong>: 交流永磁同步馬達 (172 kW, 340 Nm)</li>
+<li><strong>電池</strong>: LFP (57.73 / 82.74 kWh)</li>
+<li><strong>續航</strong>: 505 / 700 km</li>
+<li><strong>快充</strong>: &lt;30 mins (10%-80%)</li>
+</ul>
+<h2 id="32-硬體平台動態控制規格">3.2 硬體平台動態控制規格<a class="anchor" href="#32-%e7%a1%ac%e9%ab%94%e5%b9%b3%e5%8f%b0%e5%8b%95%e6%85%8b%e6%8e%a7%e5%88%b6%e8%a6%8f%e6%a0%bc">#</a></h2>
+<h3 id="321-煞車控制規格">3.2.1 煞車控制規格<a class="anchor" href="#321-%e7%85%9e%e8%bb%8a%e6%8e%a7%e5%88%b6%e8%a6%8f%e6%a0%bc">#</a></h3>
+<ul>
+<li>類型: 液壓式制動</li>
+<li>性能: 1.07G 最大減速度 (ABS 啟動)</li>
+<li>響應時間: &lt; 100 ms</li>
+</ul>
+<h3 id="322-轉向控制規格">3.2.2 轉向控制規格<a class="anchor" href="#322-%e8%bd%89%e5%90%91%e6%8e%a7%e5%88%b6%e8%a6%8f%e6%a0%bc">#</a></h3>
+<ul>
+<li>類型: 前軸轉向, 雙小齒輪 EPS</li>
+<li>性能: 啟動響應 &lt; 150 ms, 角度誤差 &lt; 0.5 deg</li>
+</ul>
+<h3 id="323-動力控制規格">3.2.3 動力控制規格<a class="anchor" href="#323-%e5%8b%95%e5%8a%9b%e6%8e%a7%e5%88%b6%e8%a6%8f%e6%a0%bc">#</a></h3>
+<ul>
+<li>性能: 速度 &lt;= 40 km/h, 輪端扭力 3900 Nm</li>
+</ul>
+<h3 id="321-foxtronpi-通訊規格">3.2.1 FoxtronPi 通訊規格<a class="anchor" href="#321-foxtronpi-%e9%80%9a%e8%a8%8a%e8%a6%8f%e6%a0%bc">#</a></h3>
+<ul>
+<li>協定: UDS / DoIP</li>
+<li>性能: 每筆請求約 40ms 延遲</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+  <div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/docs/architecture/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>2. 系統架構</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/docs/charging/" class="flex align-center">
+        <span>4. 車輛充電與電源供應</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+  
+
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#31-foxtronpi整車規格">3.1 FoxtronPi整車規格</a></li>
+    <li><a href="#32-硬體平台動態控制規格">3.2 硬體平台動態控制規格</a>
+      <ul>
+        <li><a href="#321-煞車控制規格">3.2.1 煞車控制規格</a></li>
+        <li><a href="#322-轉向控制規格">3.2.2 轉向控制規格</a></li>
+        <li><a href="#323-動力控制規格">3.2.3 動力控制規格</a></li>
+        <li><a href="#321-foxtronpi-通訊規格">3.2.1 FoxtronPi 通訊規格</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

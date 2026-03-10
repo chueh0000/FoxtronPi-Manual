@@ -1,0 +1,38 @@
+baseURL = 'http://example.org/'
+languageCode = 'zh-tw'
+title = 'FoxtronPi 使用說明手冊'
+theme = 'hugo-book'
+
+[params]
+  # (Optional) Set Google Analytics id
+  # googleAnalytics = "UA-XXXXXXXXX-X"
+
+  # (Optional) Set to 'true' to disable search
+  # BookSearch = false
+
+  # (Optional) Set to 'true' to disable menu on mobile
+  # BookMobileMenu = false
+
+  # (Optional) Set to 'true' to disable page header
+  # BookHeader = false
+
+  # (Optional) Set to 'true' to disable Table of Contents
+  # BookToC = false
+
+  # (Optional) Set to 'true' to disable the feedback link
+  # BookFeedback = false
+
+  # (Optional) Set to 'true' to disable the search input focus on '/' key
+  # BookSearchOnSlash = false
+
+  # (Optional) Set to 'true' to disable the search result highlight
+  # BookSearchHighlight = false
+
+  # (Optional) Set to 'true' to disable the search result snippet
+  # BookSearchSnippet = false
+
+  # (Optional) Set to 'true' to disable the search result icon
+  # BookSearchIcon = false
+
+  # (Optional) Set to 'true' to disable the search result breadcrumb
+  # BookSearchBreadcrumb = false

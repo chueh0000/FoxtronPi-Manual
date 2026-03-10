@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="2. 系統架構# 2.1 FoxtronPi系統硬體架構# FoxtronPi 是建構於鴻華 Model C 車型上的控制軟體，主要負責建立車輛與外部控制器之間的通訊連線，並將命令進行訊號轉換與轉拋。透過 OBD to RJ45 線材，外部控制器可與車輛進行實體連接，實現對車輛動力、轉向、煞車、檔位以及車身訊號的控制。
+2.3 FoxtronPi系統軟體架構# 外部控制器的控制信號會透過 DoIP (Diagnostics over IP) 傳送至「FoxtronPi 平台」，由該平台負責將接收到的控制信號轉譯為車輛 ECU 與內部系統可識別的特定輸入信號與控制指令順序。平台同時同步回傳相關的狀態資訊。
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/architecture/">
+  <meta property="og:site_name" content="FoxtronPi 使用說明手冊">
+  <meta property="og:title" content="2. 系統架構">
+  <meta property="og:description" content="2. 系統架構# 2.1 FoxtronPi系統硬體架構# FoxtronPi 是建構於鴻華 Model C 車型上的控制軟體，主要負責建立車輛與外部控制器之間的通訊連線，並將命令進行訊號轉換與轉拋。透過 OBD to RJ45 線材，外部控制器可與車輛進行實體連接，實現對車輛動力、轉向、煞車、檔位以及車身訊號的控制。
+2.3 FoxtronPi系統軟體架構# 外部控制器的控制信號會透過 DoIP (Diagnostics over IP) 傳送至「FoxtronPi 平台」，由該平台負責將接收到的控制信號轉譯為車輛 ECU 與內部系統可識別的特定輸入信號與控制指令順序。平台同時同步回傳相關的狀態資訊。">
+  <meta property="og:locale" content="zh_tw">
+  <meta property="og:type" content="website">
+
+
+  <meta itemprop="name" content="2. 系統架構">
+  <meta itemprop="description" content="2. 系統架構# 2.1 FoxtronPi系統硬體架構# FoxtronPi 是建構於鴻華 Model C 車型上的控制軟體，主要負責建立車輛與外部控制器之間的通訊連線，並將命令進行訊號轉換與轉拋。透過 OBD to RJ45 線材，外部控制器可與車輛進行實體連接，實現對車輛動力、轉向、煞車、檔位以及車身訊號的控制。
+2.3 FoxtronPi系統軟體架構# 外部控制器的控制信號會透過 DoIP (Diagnostics over IP) 傳送至「FoxtronPi 平台」，由該平台負責將接收到的控制信號轉譯為車輛 ECU 與內部系統可識別的特定輸入信號與控制指令順序。平台同時同步回傳相關的狀態資訊。">
+  <meta itemprop="wordCount" content="24">
+
+<title>2. 系統架構 | FoxtronPi 使用說明手冊</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/architecture/">
+<link rel="stylesheet" href="/book.min.cc2c524ed250aac81b23d1f4af87344917b325208841feca0968fe450f570575.css" integrity="sha256-zCxSTtJQqsgbI9H0r4c0SRezJSCIQf7KCWj&#43;RQ9XBXU=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.9350ed64e2e921217df458ec9cde9860a7e5451b3338bf3e64cbba6800cefe55.js" integrity="sha256-k1DtZOLpISF99FjsnN6YYKflRRszOL8&#43;ZMu6aADO/lU=" crossorigin="anonymous"></script>
+
+
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/docs/architecture/index.xml" title="FoxtronPi 使用說明手冊" />
+
+  
+</head>
+<body dir="ltr" class="book-kind-section book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>FoxtronPi 使用說明手冊</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="搜索"
+    aria-label="搜索"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/overview/" class="">
+      1. 總則說明</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/architecture/" class="active">
+      2. 系統架構</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/specs/" class="">
+      3. 車輛規格</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/charging/" class="">
+      4. 車輛充電與電源供應</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/signals/read/" class="">
+      5. FoxtronPi 讀取訊號</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/signals/control/" class="">
+      6. 控制訊號操作流程與限制條件</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/dev-setup/" class="">
+      7. 程式開發環境架設</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/" class="">
+      8. FoxtronPi Library (API) 說明</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/emergency/" class="">
+      9. 紅色緊急按鈕操作方法</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>2. 系統架構</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#21-foxtronpi系統硬體架構">2.1 FoxtronPi系統硬體架構</a></li>
+    <li><a href="#23-foxtronpi系統軟體架構">2.3 FoxtronPi系統軟體架構</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="2-系統架構">2. 系統架構<a class="anchor" href="#2-%e7%b3%bb%e7%b5%b1%e6%9e%b6%e6%a7%8b">#</a></h1>
+<h2 id="21-foxtronpi系統硬體架構">2.1 FoxtronPi系統硬體架構<a class="anchor" href="#21-foxtronpi%e7%b3%bb%e7%b5%b1%e7%a1%ac%e9%ab%94%e6%9e%b6%e6%a7%8b">#</a></h2>
+<p>FoxtronPi 是建構於鴻華 Model C 車型上的控制軟體，主要負責建立車輛與外部控制器之間的通訊連線，並將命令進行訊號轉換與轉拋。透過 OBD to RJ45 線材，外部控制器可與車輛進行實體連接，實現對車輛動力、轉向、煞車、檔位以及車身訊號的控制。</p>
+<h2 id="23-foxtronpi系統軟體架構">2.3 FoxtronPi系統軟體架構<a class="anchor" href="#23-foxtronpi%e7%b3%bb%e7%b5%b1%e8%bb%9f%e9%ab%94%e6%9e%b6%e6%a7%8b">#</a></h2>
+<p>外部控制器的控制信號會透過 DoIP (Diagnostics over IP) 傳送至「FoxtronPi 平台」，由該平台負責將接收到的控制信號轉譯為車輛 ECU 與內部系統可識別的特定輸入信號與控制指令順序。平台同時同步回傳相關的狀態資訊。</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+  <div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/docs/overview/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>1. 總則說明</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/docs/specs/" class="flex align-center">
+        <span>3. 車輛規格</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+  
+
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#21-foxtronpi系統硬體架構">2.1 FoxtronPi系統硬體架構</a></li>
+    <li><a href="#23-foxtronpi系統軟體架構">2.3 FoxtronPi系統軟體架構</a></li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

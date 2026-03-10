@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="7. 程式開發環境架設# 本章介紹如何在 Windows 系統中使用 WSL 架設開發環境。
+7.1 WSL 安裝 (Windows Subsystem for Linux)# 安裝 WSL&#43;Ubuntu (22.04): wsl --install -d Ubuntu-22.04 更新 Ubuntu: sudo apt update sudo apt -y upgrade 7.2 安裝 Python 與依賴程式庫# 安裝 Python3 與 Venv: sudo apt install python3 python3-venv python3-pip Clone 程式碼: git clone -b main https://github.com/foxtron-ev/foxtronpi-pyclient cd foxtronpi-pyclient 建立與啟用 Venv: python3 -m venv Pi source Pi/bin/activate 安裝依賴套件: python -m pip install -U pip pip install -r requirements.txt 備註# 看到命令列前面出現 (Pi)，即表示虛擬環境 (venv) 已啟用。若需關閉，可執行 deactivate。
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/dev-setup/">
+  <meta property="og:site_name" content="FoxtronPi 使用說明手冊">
+  <meta property="og:title" content="7. 程式開發環境架設">
+  <meta property="og:description" content="7. 程式開發環境架設# 本章介紹如何在 Windows 系統中使用 WSL 架設開發環境。
+7.1 WSL 安裝 (Windows Subsystem for Linux)# 安裝 WSL&#43;Ubuntu (22.04): wsl --install -d Ubuntu-22.04 更新 Ubuntu: sudo apt update sudo apt -y upgrade 7.2 安裝 Python 與依賴程式庫# 安裝 Python3 與 Venv: sudo apt install python3 python3-venv python3-pip Clone 程式碼: git clone -b main https://github.com/foxtron-ev/foxtronpi-pyclient cd foxtronpi-pyclient 建立與啟用 Venv: python3 -m venv Pi source Pi/bin/activate 安裝依賴套件: python -m pip install -U pip pip install -r requirements.txt 備註# 看到命令列前面出現 (Pi)，即表示虛擬環境 (venv) 已啟用。若需關閉，可執行 deactivate。">
+  <meta property="og:locale" content="zh_tw">
+  <meta property="og:type" content="website">
+
+
+  <meta itemprop="name" content="7. 程式開發環境架設">
+  <meta itemprop="description" content="7. 程式開發環境架設# 本章介紹如何在 Windows 系統中使用 WSL 架設開發環境。
+7.1 WSL 安裝 (Windows Subsystem for Linux)# 安裝 WSL&#43;Ubuntu (22.04): wsl --install -d Ubuntu-22.04 更新 Ubuntu: sudo apt update sudo apt -y upgrade 7.2 安裝 Python 與依賴程式庫# 安裝 Python3 與 Venv: sudo apt install python3 python3-venv python3-pip Clone 程式碼: git clone -b main https://github.com/foxtron-ev/foxtronpi-pyclient cd foxtronpi-pyclient 建立與啟用 Venv: python3 -m venv Pi source Pi/bin/activate 安裝依賴套件: python -m pip install -U pip pip install -r requirements.txt 備註# 看到命令列前面出現 (Pi)，即表示虛擬環境 (venv) 已啟用。若需關閉，可執行 deactivate。">
+  <meta itemprop="wordCount" content="78">
+
+<title>7. 程式開發環境架設 | FoxtronPi 使用說明手冊</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/dev-setup/">
+<link rel="stylesheet" href="/book.min.cc2c524ed250aac81b23d1f4af87344917b325208841feca0968fe450f570575.css" integrity="sha256-zCxSTtJQqsgbI9H0r4c0SRezJSCIQf7KCWj&#43;RQ9XBXU=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.9350ed64e2e921217df458ec9cde9860a7e5451b3338bf3e64cbba6800cefe55.js" integrity="sha256-k1DtZOLpISF99FjsnN6YYKflRRszOL8&#43;ZMu6aADO/lU=" crossorigin="anonymous"></script>
+
+
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/docs/dev-setup/index.xml" title="FoxtronPi 使用說明手冊" />
+
+  
+</head>
+<body dir="ltr" class="book-kind-section book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>FoxtronPi 使用說明手冊</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="搜索"
+    aria-label="搜索"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/overview/" class="">
+      1. 總則說明</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/architecture/" class="">
+      2. 系統架構</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/specs/" class="">
+      3. 車輛規格</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/charging/" class="">
+      4. 車輛充電與電源供應</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/signals/read/" class="">
+      5. FoxtronPi 讀取訊號</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/signals/control/" class="">
+      6. 控制訊號操作流程與限制條件</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/dev-setup/" class="active">
+      7. 程式開發環境架設</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/" class="">
+      8. FoxtronPi Library (API) 說明</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/emergency/" class="">
+      9. 紅色緊急按鈕操作方法</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>7. 程式開發環境架設</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#71-wsl-安裝-windows-subsystem-for-linux">7.1 WSL 安裝 (Windows Subsystem for Linux)</a></li>
+    <li><a href="#72-安裝-python-與依賴程式庫">7.2 安裝 Python 與依賴程式庫</a></li>
+    <li><a href="#備註">備註</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="7-程式開發環境架設">7. 程式開發環境架設<a class="anchor" href="#7-%e7%a8%8b%e5%bc%8f%e9%96%8b%e7%99%bc%e7%92%b0%e5%a2%83%e6%9e%b6%e8%a8%ad">#</a></h1>
+<p>本章介紹如何在 Windows 系統中使用 WSL 架設開發環境。</p>
+<h2 id="71-wsl-安裝-windows-subsystem-for-linux">7.1 WSL 安裝 (Windows Subsystem for Linux)<a class="anchor" href="#71-wsl-%e5%ae%89%e8%a3%9d-windows-subsystem-for-linux">#</a></h2>
+<ol>
+<li><strong>安裝 WSL+Ubuntu (22.04)</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>wsl --install -d Ubuntu-22.04</span></span></code></pre></div></li>
+<li><strong>更新 Ubuntu</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt -y upgrade</span></span></code></pre></div></li>
+</ol>
+<h2 id="72-安裝-python-與依賴程式庫">7.2 安裝 Python 與依賴程式庫<a class="anchor" href="#72-%e5%ae%89%e8%a3%9d-python-%e8%88%87%e4%be%9d%e8%b3%b4%e7%a8%8b%e5%bc%8f%e5%ba%ab">#</a></h2>
+<ol>
+<li><strong>安裝 Python3 與 Venv</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install python3 python3-venv python3-pip</span></span></code></pre></div></li>
+<li><strong>Clone 程式碼</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone -b main https://github.com/foxtron-ev/foxtronpi-pyclient
+</span></span><span style="display:flex;"><span>cd foxtronpi-pyclient</span></span></code></pre></div></li>
+<li><strong>建立與啟用 Venv</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m venv Pi
+</span></span><span style="display:flex;"><span>source Pi/bin/activate</span></span></code></pre></div></li>
+<li><strong>安裝依賴套件</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python -m pip install -U pip
+</span></span><span style="display:flex;"><span>pip install -r requirements.txt</span></span></code></pre></div></li>
+</ol>
+<h2 id="備註">備註<a class="anchor" href="#%e5%82%99%e8%a8%bb">#</a></h2>
+<p>看到命令列前面出現 <code>(Pi)</code>，即表示虛擬環境 (venv) 已啟用。若需關閉，可執行 <code>deactivate</code>。</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+  <div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/docs/signals/control/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>6. 控制訊號操作流程與限制條件</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/docs/api/" class="flex align-center">
+        <span>8. FoxtronPi Library (API) 說明</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+  
+
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#71-wsl-安裝-windows-subsystem-for-linux">7.1 WSL 安裝 (Windows Subsystem for Linux)</a></li>
+    <li><a href="#72-安裝-python-與依賴程式庫">7.2 安裝 Python 與依賴程式庫</a></li>
+    <li><a href="#備註">備註</a></li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
