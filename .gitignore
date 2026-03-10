@@ -1,2 +1,6 @@
 .DS_Store
 FoxtronPi_specification-V2.pdf
+
+foxtronpi-docs/public/
+foxtronpi-docs/.hugo_build.lock
+foxtronpi-docs/resources/
