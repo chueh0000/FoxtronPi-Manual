@@ -1,6 +1,7 @@
 ---
 title: "6. 控制訊號操作流程與限制條件"
 type: "docs"
+bookCollapseSection: true
 weight: 6
 ---
 
