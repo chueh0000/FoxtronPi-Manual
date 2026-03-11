@@ -37,3 +37,7 @@ copyright = 'Copyright © FOXTRON Vehicle Technologies Co., Ltd. All Rights Rese
 
   # (Optional) Set to 'true' to disable the search result breadcrumb
   # BookSearchBreadcrumb = false
+
+[markup]
+[markup.goldmark.renderer]
+  unsafe = true
