@@ -181,7 +181,7 @@ weight: 5
 > (0: Not Allow, 1: Allow)
 
 > [!NOTE]
-> FoxPi_Shifter_allow 為進入 APS 控制前的允許條件判斷。系統會檢查三個訊號，僅當所有條件皆滿足(=1)時，車輛才會切入 APS 控制。任一條件不滿足時，將禁止進入 APS 控制。
+> FoxPi_Shifter_allow 為進入 [APS 控制]({{< relref "docs/signals/control/FoxPi_Driving_Ctrl#625-aps檔位控制流程" >}})前的允許條件判斷。系統會檢查三個訊號，僅當所有條件皆滿足(=1)時，車輛才會切入 APS 控制。任一條件不滿足時，將禁止進入 APS 控制。
 
 ## 5.11 電池系統狀態 (FoxPi_Battery_Status)
 - `LVBatt12V`: 12V 電池電壓 (0 ~ 25.4 V)
