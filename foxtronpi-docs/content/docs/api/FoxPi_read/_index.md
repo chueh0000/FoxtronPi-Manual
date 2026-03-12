@@ -566,7 +566,7 @@ from common import get_uds_client
 from client_config import DOIP_SERVER_IP, DoIP_LOGICAL_ADDRESS
 from FoxPi_read import FoxPiReadDID
 
-doip_client = DoIPClient(DOIP_SERVER_IP, DOIP_LOGICAL_ADDRESS, protocol_version=3)
+doip_client = DoIPClient(DOIP_SERVER_IP, DoIP_LOGICAL_ADDRESS, protocol_version=3)
 uds_connection = DoIPClientUDSConnector(doip_client)
 assert uds_connection.is_open
 with Client(uds_connection, request_timeout=4, config=get_uds_client()) as client:
