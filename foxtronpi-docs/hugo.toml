@@ -53,3 +53,7 @@ copyright = 'Copyright © FOXTRON Vehicle Technologies Co., Ltd. All Rights Rese
 [markup]
 [markup.goldmark.renderer]
   unsafe = true
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
