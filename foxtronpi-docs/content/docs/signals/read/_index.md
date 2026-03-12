@@ -126,7 +126,7 @@ weight: 5
 > EPS_TOI_Activation: EPS 系統是否有反應使用者下達的 TOI 轉向控制 (0: No Activation, 1: Activation)
 
 > [!CAUTION]
-> EPS_TOI_Unavailable: EPS 內部檢查確認後，TOI 是否為可控狀態 (0: Available, 1: Unavailable)
+> EPS_TOI_Available: EPS 內部檢查確認後，TOI 是否為可控狀態 (0: Available, 1: Unavailable)
 > 註: 若有問題則無法開啟 TOI 控制。
 
 > EPS_TOI_Fault: TOI 控制下 fail safe 檢查確認 (0: No Fault, 1: Fault)
