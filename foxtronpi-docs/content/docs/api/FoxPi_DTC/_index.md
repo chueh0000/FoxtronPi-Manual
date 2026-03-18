@@ -1,10 +1,10 @@
 ---
-title: "8.3 FoxPi_DTC"
+title: "6.3 FoxPi_DTC"
 type: "docs"
 weight: 3
 ---
 
-# 8.3 FoxPi_DTC
+# 6.3 FoxPi_DTC
 提供 DTC (Diagnostic Trouble Codes) 的讀取/清除功能，內部會在操作前切換 DoIP 邏輯位址至功能位址 (functional address) 以對全車系統廣播，完成後切回實體位址 (physical address)。
 
 ```python
@@ -14,7 +14,7 @@ class FoxPiDTC(client, doip_client)
 - `client`: (udsoncan.client.Client) 已開啟的 UDS 客戶端。
 - `doip_client`: (doipclient.DoIPClient) DoIP 連線物件，用於切換 ECU 邏輯位址。
 
-## 8.3.1 Read_DTCs()
+## 6.3.1 Read_DTCs()
 以 reportDTCByStatusMask(0x0F) 讀取當前問題相關的 DTC(含 pending/confirmed/test_failed 等狀態)。
 
 - Return type: `str | Dict`
@@ -56,7 +56,7 @@ Success, no DTCs found
 ```
 {{% /details %}}
 
-## 8.3.2 Clear_DTCs()
+## 6.3.2 Clear_DTCs()
 以 clearDTC(group=0xFFFFFF) 清除所有 DTC。
 
 - Return type: `str | Exception`

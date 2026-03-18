@@ -1,10 +1,10 @@
 ---
-title: "8.4 FoxPi_TP"
+title: "6.4 FoxPi_TP"
 type: "docs"
 weight: 4
 ---
 
-# 8.4 FoxPi_TP
+# 6.4 FoxPi_TP
 提供 Tester Present 維持會話的功能(避免超時結束診斷會話)。
 
 ```python
@@ -16,7 +16,7 @@ class FoxPiTP(client)
 > [!TIP]
 > 本功能是避免長時間未傳送任何讀取/寫入封包，導致被車輛系統斷線
 
-## 8.4.1 TesterPresent()
+## 6.4.1 TesterPresent()
 送出 Tester Present 要求，維持當前連線，避免斷線。
 
 {{% details title="Example Code" open=false %}}
