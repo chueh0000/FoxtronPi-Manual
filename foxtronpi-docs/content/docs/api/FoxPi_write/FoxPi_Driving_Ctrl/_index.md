@@ -7,20 +7,20 @@ weight: 1
 # 6.2.1 FoxPi_Driving_Ctrl(user_input[])
 寫入 DID 0x1001 (FoxPi_Driving_Ctrl)，用來車輛動態控制。
 - Parameters: `user_input[14]`
-    - `user_input[0]`: Acc
-    - `user_input[1]`: Acc_A
-    - `user_input[2]`: Spd
-    - `user_input[3]`: Spd_A
+    - `user_input[0]`: AccReq
+    - `user_input[1]`: AccReq_A
+    - `user_input[2]`: TargetSpd
+    - `user_input[3]`: TargetSpd_A
     - `user_input[4]`: Angle_V
     - `user_input[5]`: Angle_Req
     - `user_input[6]`: Angle
     - `user_input[7]`: Torque_V
     - `user_input[8]`: Torque_Req
     - `user_input[9]`: Torque
-    - `user_input[10]`: APS_flg
-    - `user_input[11]`: APS_Sta
-    - `user_input[12]`: APS_Shift
-    - `user_input[13]`: APS_Spd
+    - `user_input[10]`: APSVMCReqA_flg
+    - `user_input[11]`: APSStaSystem
+    - `user_input[12]`: APSShiftPosnReq
+    - `user_input[13]`: APSSpeedCMD
 - Return type: Bytes (實際寫入的封包內容)，Error 時回傳 None。
 
 {{% details title="Example Code/Output" open=false %}}
@@ -66,22 +66,22 @@ b'\x00\x00d\x01\x00\x07\xff\x01\x01\x01\x00\x00\x00\x00\x01\x01\x00\x00\x00y\xa0
 > [!CAUTION]
 
 ## 6.2.1.1 加減速度訊號操作流程
-進行加速度控制前，必須先將驗證旗標 `Acc_A=1` 拉起；旗標有效後，系統才會接受並執行命令。
-- `Acc`: 加減速度命令訊號 (-15 ~ 1.5 m/s²)
-- `Acc_A`: 加減速度命令驗證 (0 ~ 1)
+進行加速度控制前，必須先將驗證旗標 `AccReq_A=1` 拉起；旗標有效後，系統才會接受並執行命令。
+- `AccReq`: 加減速度命令訊號 (-15 ~ 1.5 m/s²)
+- `AccReq_A`: 加減速度命令驗證 (0 ~ 1)
 
 >車輛處於禁止狀態時，Acc為 0。Acc為正值時，表示為加速度指令，出於安全考量，FoxtronPi系統最大可設定至 1.5 m/s²。Acc為負值時，表示為減速度指令，減速度最大可設定至 -15 m/s²。FoxtronPi系統對減速度無下限保護機制，因此最大可執行至 -15 m/s²。
 
 > 由於 Acc 屬於車輛動態控制，初次使用時請勿一次設定過高的加速度值。建議以 0.05 m/s² 逐步遞增，以避免過度操作造成車輛動態過大，進而產生危險。
 
-> 註: Acc與Acc_A兩者訊號可同時寫入，例如: 一次寫入 `Acc_A=1`、`Acc=0.05`，系統會執行加速度 0.05 m/s² 命令。
+> 註: Acc與Acc_A兩者訊號可同時寫入，例如: 一次寫入 `AccReq_A=1`、`AccReq=0.05`，系統會執行加速度 0.05 m/s² 命令。
 
 > 註: 如果此訊號寫入時，車輛當前檔位為P，請手動將檔位切換至D檔，系統才會執行此訊號。
 
 ## 6.2.1.2 目標速度訊號操作流程
-進行目標速度控制前，必須先將驗證旗標 `Spd_A=1` 拉起；旗標有效後，系統才會接受並執行命令。
-- `Spd`: 目標速度命令訊號 (0 ~ 170 km/h)
-- `Spd_A`: 目標速度命令驗證 (0 ~ 1)
+進行目標速度控制前，必須先將驗證旗標 `TargetSpd_A=1` 拉起；旗標有效後，系統才會接受並執行命令。
+- `TargetSpd`: 目標速度命令訊號 (0 ~ 170 km/h)
+- `TargetSpd_A`: 目標速度命令驗證 (0 ~ 1)
 
 > 由於 Spd 屬於車輛動態控制，初次使用時請勿設定過高的目標車速值。建議初次實驗參數值可設定 5-20 區間，以避免過度操作造成車輛動態過大，進而產生危險。
 
@@ -144,15 +144,15 @@ b'\x00\x00d\x01\x00\x07\xff\x01\x01\x01\x00\x00\x00\x00\x01\x01\x00\x00\x00y\xa0
 > 如遇 EPS 解離，需先將 `Torque_V`、`Torque_Req`、`Torque` 都設為0後，再重新2-4步驟流程。
 
 ## 6.2.1.5 APS檔位控制流程
-- `APS_flg`: APS 控制命令 VMC 執行應用需求 (0 ~ 1)
+- `APSVMCReqA_flg`: APS 控制命令 VMC 執行應用需求 (0 ~ 1)
     - `0`: Non-Applicable, `1`: Applicable
-- `APS_Sta`: APS 控制狀態 (0 ~ 7)
+- `APSStaSystem`: APS 控制狀態 (0 ~ 7)
     - `0`: Disable
     - `1`: PiRev (FoxPi保留)
     - `2`: Active
     - `3`: Failed
     - `4`: Remote Actived (不支援)
-- `APS_Shift`: APS 檔位控制命令 (0 ~ 15)
+- `APSShiftPosnReq`: APS 檔位控制命令 (0 ~ 15)
     - `0`: Default
     - `1`: NA
     - `2`: P
@@ -161,10 +161,10 @@ b'\x00\x00d\x01\x00\x07\xff\x01\x01\x01\x00\x00\x00\x00\x01\x01\x00\x00\x00y\xa0
     - `5`: D
     - `6`: Failure
     - `7`: R
-- `APS_Spd`: 設定速度控制值 APS_Speed (0 ~ 7)
+- `APSSpeedCMD`: 設定速度控制值 APS_Speed (0 ~ 7)
 
 > [!NOTE]
-> 進行APS檔位控制前，必須先確認 [允許檔位控制訊號讀取 (FoxPi_Shifter_allow)]({{< relref "docs/api/FoxPi_read#6113-foxpi_shifter_allow" >}}) 訊號值是否皆為1，再設定 `APS_ flg=1`、`APS_Sta=2`，系統才會接受並執行目標命令。
+> 進行APS檔位控制前，必須先確認 [允許檔位控制訊號讀取 (FoxPi_Shifter_allow)]({{< relref "docs/api/FoxPi_read#6113-foxpi_shifter_allow" >}}) 訊號值是否皆為1，再設定 `APSVMCReqA_flg=1`、`APSStaSystem=2`，系統才會接受並執行目標命令。
 
 > [!TIP]
-> 註: APS_Speed 控制出於安全考量最大值為 7km/h，若需進行安全低速實驗，可使用 APS_Speed 的速度控制功能來操作，當變速檔位為 R(倒車)時，車輛僅能透過此速度控制進行移動。
+> 註: `APSSpeedCMD` 控制出於安全考量最大值為 7km/h，若需進行安全低速實驗，可使用 `APSSpeedCMD` 的速度控制功能來操作，當變速檔位為 R(倒車)時，車輛僅能透過此速度控制進行移動。
